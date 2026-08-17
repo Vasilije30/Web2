@@ -1,0 +1,43 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+[Dd]ebug/
+[Rr]elease/
+publish/
+
+# Service Fabric
+PublishProfiles/*.xml
+ApplicationParameters/*.xml
+!ApplicationParameters/Local.xml
+*.sfproj.user
+pkg/
+log/
+**/ApplicationPackageRoot/*/Code/
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+
+# Env files (never commit real secrets)
+.env
+.env.local
+!.env.example
+
+# Editor
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
