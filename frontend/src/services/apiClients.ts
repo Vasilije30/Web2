@@ -1,4 +1,13 @@
-import axios, { type AxiosInstance } from "axios";
+import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
+
+/**
+ * Builds request config carrying a share-link token (X-Share-Token header), for calls made by
+ * someone viewing/editing a trip via a share link rather than their own JWT. TripPlanning.Service
+ * accepts either credential - see ITripAccessGuard.GetAccessibleTripAsync on the backend.
+ */
+export function withShareToken(shareToken?: string): AxiosRequestConfig | undefined {
+  return shareToken ? { headers: { "X-Share-Token": shareToken } } : undefined;
+}
 
 function createApiClient(baseURL: string | undefined, name: string): AxiosInstance {
   if (!baseURL) {
