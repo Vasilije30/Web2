@@ -61,16 +61,24 @@ modeli (`src/models/`). Forme: React Hook Form + Zod. Kalendar: `react-big-calen
 2. ✅ **Identity.Service** — User model/migracija, register/login, JWT, role middleware.
 3. ✅ **TripPlanning.Service — Trips + Destinations** — CRUD, cascade delete, validacija.
 4. ✅ **TripPlanning.Service — Activities + Checklist + Expenses/Budget** — CRUD, kalkulacije.
-5. **Sharing.Service** — Reliable Dictionary, generisanje/validacija/opoziv tokena.
-6. **Frontend — Auth + skeleton** — routing, AuthContext, forme, zaštićene rute.
-7. **Frontend — Trips/Destinations/Activities + kalendar**.
-8. **Frontend — Budžet/Troškovi + Checklist**.
-9. **Frontend — Mapa (bonus feature)**.
-10. **Frontend — Deljenje** — QR kod, VIEW/EDIT UX.
-11. **Admin panel**.
-12. **Dokumentacija i predaja** — use case dijagram, finalni README, provera svih napomena iz
+5. ✅ **Sharing.Service** — Reliable Dictionary, generisanje/validacija/opoziv tokena.
+6. ✅ **Frontend — Auth + skeleton** — routing, AuthContext, forme, zaštićene rute.
+7. ✅ **Frontend — Trips/Destinations/Activities + kalendar**.
+8. ✅ **Frontend — Budžet/Troškovi + Checklist**.
+9. ✅ **Frontend — Mapa (bonus feature)**.
+10. ✅ **Frontend — Deljenje** — QR kod, VIEW/EDIT UX.
+11. ✅ **Admin panel**.
+12. 🔶 **Dokumentacija i predaja** — use case dijagram, finalni README, provera svih napomena iz
     specifikacije.
 
 ## Use Case dijagram
 
-TODO — dodaje se u Fazi 12 (`docs/use-case-diagram.png` ili `.drawio`).
+Vidi [`use-case-diagram.svg`](use-case-diagram.svg) — akteri Gost / Korisnik / Administrator
+(generalizacija: Administrator nasleđuje sve use case-ove Korisnika, Korisnik nasleđuje Gosta),
+use case-ovi grupisani po funkcionalnim celinama, uz `<<extend>>` relaciju za bonus mapu.
+
+## Provera napomena iz specifikacije
+
+Vidi [`napomene-checklist.md`](napomene-checklist.md) — REST konvencije, DTO/model separacija,
+`.env` disciplina, heširane lozinke, JWT validacija, validacione granice, cascade delete, sa
+referencama na konkretan kod.

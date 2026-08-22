@@ -1,0 +1,355 @@
+/* Skelet aplikacije: header, glavni sadržaj, footer, kontejneri i mreže. */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-8) var(--space-6) var(--space-16);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+
+/* ---------- Header / navbar ---------- */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  min-height: var(--header-height);
+  padding: 0 var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--text-strong);
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.brand__mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+.brand__text small {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-inline-start: auto;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 550;
+  color: var(--text-muted);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.nav-link:hover {
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+
+.nav-link.is-active {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+.nav-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin-inline: var(--space-2);
+}
+
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3) var(--space-1) var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+  font-weight: 550;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-inline-start: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.nav-toggle:hover {
+  background: var(--surface-hover);
+}
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+
+.app-footer__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- Zaglavlje stranice ---------- */
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.page-header__text {
+  min-width: 0;
+}
+
+.page-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-text);
+  margin-bottom: var(--space-2);
+}
+
+.page-header__subtitle {
+  margin-top: var(--space-2);
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.page-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ---------- Mreže ---------- */
+
+.grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.grid-cards {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.grid-stats {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.row-between {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .app-header__inner {
+    padding: 0 var(--space-4);
+    flex-wrap: wrap;
+    min-height: 60px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .app-nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1);
+    margin: 0;
+    padding: var(--space-3) 0 var(--space-4);
+    border-top: 1px solid var(--border);
+  }
+
+  .app-nav.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: var(--space-3);
+  }
+
+  .nav-divider {
+    width: 100%;
+    height: 1px;
+    margin: var(--space-2) 0;
+  }
+
+  .user-chip {
+    align-self: flex-start;
+  }
+
+  .app-main {
+    padding: var(--space-6) var(--space-4) var(--space-12);
+  }
+}
+
+@media (max-width: 640px) {
+  .brand__text small {
+    display: none;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+
+  .page-header__actions {
+    width: 100%;
+  }
+
+  .page-header__actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .app-footer__inner {
+    padding: var(--space-5) var(--space-4);
+    justify-content: center;
+    text-align: center;
+  }
+}

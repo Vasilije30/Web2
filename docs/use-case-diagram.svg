@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="950" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="26" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Use Case dijagram — Travel Planner</text>
+
+  <!-- System boundary -->
+  <rect x="230" y="45" width="930" height="855" rx="6" fill="none" stroke="#333333" stroke-width="2"/>
+  <text x="695" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a1a">Travel Planner</text>
+
+  <!-- ===== Actors ===== -->
+  <!-- Gost -->
+  <g stroke="#1a1a1a" stroke-width="2" fill="none">
+    <circle cx="80" cy="95" r="14"/>
+    <line x1="80" y1="109" x2="80" y2="150"/>
+    <line x1="60" y1="122" x2="100" y2="122"/>
+    <line x1="80" y1="150" x2="63" y2="182"/>
+    <line x1="80" y1="150" x2="97" y2="182"/>
+  </g>
+  <text x="80" y="200" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Gost</text>
+
+  <!-- Korisnik -->
+  <g stroke="#1a1a1a" stroke-width="2" fill="none">
+    <circle cx="80" cy="345" r="14"/>
+    <line x1="80" y1="359" x2="80" y2="400"/>
+    <line x1="60" y1="372" x2="100" y2="372"/>
+    <line x1="80" y1="400" x2="63" y2="432"/>
+    <line x1="80" y1="400" x2="97" y2="432"/>
+  </g>
+  <text x="80" y="450" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Korisnik</text>
+
+  <!-- Administrator -->
+  <g stroke="#1a1a1a" stroke-width="2" fill="none">
+    <circle cx="80" cy="755" r="14"/>
+    <line x1="80" y1="769" x2="80" y2="810"/>
+    <line x1="60" y1="782" x2="100" y2="782"/>
+    <line x1="80" y1="810" x2="63" y2="842"/>
+    <line x1="80" y1="810" x2="97" y2="842"/>
+  </g>
+  <text x="80" y="860" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">Administrator</text>
+
+  <!-- Generalization arrows between actors (hollow triangle points to parent) -->
+  <defs>
+    <marker id="genArrow" markerWidth="18" markerHeight="16" refX="16" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 Z" fill="white" stroke="#1a1a1a" stroke-width="1.5"/>
+    </marker>
+    <marker id="openArrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#555555" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <line x1="80" y1="325" x2="80" y2="216" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#genArrow)"/>
+  <line x1="80" y1="735" x2="80" y2="466" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#genArrow)"/>
+
+  <!-- ===== Use case ellipses ===== -->
+  <!-- helper style: ellipse fill -->
+  <!-- Row 0: Gost use cases -->
+  <ellipse cx="420" cy="110" rx="115" ry="34" fill="#eaf2fb" stroke="#2b5b8c" stroke-width="1.5"/>
+  <text x="420" y="115" text-anchor="middle" font-size="13" fill="#1a1a1a">Registracija</text>
+
+  <ellipse cx="670" cy="110" rx="115" ry="34" fill="#eaf2fb" stroke="#2b5b8c" stroke-width="1.5"/>
+  <text x="670" y="115" text-anchor="middle" font-size="13" fill="#1a1a1a">Prijava</text>
+
+  <ellipse cx="950" cy="110" rx="150" ry="34" fill="#eaf2fb" stroke="#2b5b8c" stroke-width="1.5"/>
+  <text x="950" y="115" text-anchor="middle" font-size="13" fill="#1a1a1a">Pregled deljenog plana (link)</text>
+
+  <!-- Row 1: Korisnik use cases -->
+  <ellipse cx="420" cy="230" rx="130" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="420" y="235" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje planovima putovanja</text>
+
+  <ellipse cx="680" cy="230" rx="120" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="680" y="235" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje destinacijama</text>
+
+  <ellipse cx="950" cy="230" rx="140" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="950" y="235" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje aktivnostima (kalendar)</text>
+
+  <!-- Row 2 -->
+  <ellipse cx="420" cy="345" rx="140" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="420" y="350" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje budžetom i troškovima</text>
+
+  <ellipse cx="700" cy="345" rx="145" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="700" y="350" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje checklistom za pakovanje</text>
+
+  <ellipse cx="1000" cy="345" rx="140" ry="34" fill="#fdf2e3" stroke="#a1650f" stroke-width="1.5"/>
+  <text x="1000" y="350" text-anchor="middle" font-size="13" fill="#1a1a1a">Pregled mape sa rutom</text>
+  <text x="1000" y="366" text-anchor="middle" font-size="10" fill="#7a4a08" font-style="italic">(bonus)</text>
+
+  <!-- Row 3 -->
+  <ellipse cx="420" cy="460" rx="130" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="420" y="465" text-anchor="middle" font-size="13" fill="#1a1a1a">Deljenje plana putovanja</text>
+
+  <ellipse cx="650" cy="460" rx="90" ry="34" fill="#eafbea" stroke="#2f7a3d" stroke-width="1.5"/>
+  <text x="650" y="465" text-anchor="middle" font-size="13" fill="#1a1a1a">Odjava</text>
+
+  <!-- Admin use cases -->
+  <ellipse cx="500" cy="780" rx="145" ry="34" fill="#fbeaea" stroke="#a12b2b" stroke-width="1.5"/>
+  <text x="500" y="785" text-anchor="middle" font-size="13" fill="#1a1a1a">Upravljanje korisnicima (role/status)</text>
+
+  <ellipse cx="820" cy="780" rx="160" ry="34" fill="#fbeaea" stroke="#a12b2b" stroke-width="1.5"/>
+  <text x="820" y="785" text-anchor="middle" font-size="13" fill="#1a1a1a">Pregled svih planova putovanja</text>
+
+  <!-- ===== Associations (actor - use case), plain lines ===== -->
+  <g stroke="#555555" stroke-width="1.3">
+    <line x1="97" y1="90" x2="308" y2="105"/>
+    <line x1="97" y1="95" x2="558" y2="108"/>
+    <line x1="100" y1="100" x2="803" y2="112"/>
+
+    <line x1="98" y1="335" x2="292" y2="240"/>
+    <line x1="98" y1="340" x2="562" y2="235"/>
+    <line x1="100" y1="345" x2="812" y2="232"/>
+    <line x1="98" y1="352" x2="282" y2="340"/>
+    <line x1="98" y1="358" x2="557" y2="345"/>
+    <line x1="98" y1="365" x2="425" y2="450"/>
+    <line x1="98" y1="372" x2="562" y2="455"/>
+
+    <line x1="98" y1="740" x2="358" y2="783"/>
+    <line x1="98" y1="748" x2="662" y2="781"/>
+  </g>
+
+  <!-- ===== extend relation: Pregled mape sa rutom extends Upravljanje aktivnostima ===== -->
+  <line x1="985" y1="311" x2="960" y2="264" stroke="#7a4a08" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <text x="1050" y="290" text-anchor="middle" font-size="11" fill="#7a4a08" font-style="italic">&#171;extend&#187;</text>
+
+  <!-- ===== Legend ===== -->
+  <g font-size="12" fill="#1a1a1a">
+    <text x="250" y="925" font-weight="bold">Legenda:</text>
+    <line x1="330" y1="921" x2="365" y2="921" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#genArrow)"/>
+    <text x="375" y="925">generalizacija aktera (nasleđuje sve use case-ove roditelja)</text>
+    <line x1="770" y1="921" x2="805" y2="921" stroke="#7a4a08" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+    <text x="815" y="925">&#171;extend&#187;</text>
+  </g>
+</svg>
