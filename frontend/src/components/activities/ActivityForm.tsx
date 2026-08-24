@@ -14,8 +14,6 @@ const activitySchema = z.object({
   date: z.string().min(1, "Datum je obavezan"),
   time: z.string().min(1, "Vreme je obavezno"),
   location: z.string().max(300).default(""),
-  latitude: z.coerce.number().nullable(),
-  longitude: z.coerce.number().nullable(),
   description: z.string().max(2000).default(""),
   estimatedCost: z.coerce.number().min(0, "Procenjeni trošak ne može biti negativan"),
   status: z.enum(activityStatuses),
@@ -53,8 +51,6 @@ export default function ActivityForm({
       date: "",
       time: "",
       location: "",
-      latitude: null,
-      longitude: null,
       description: "",
       estimatedCost: 0,
       status: "Planned",
@@ -67,7 +63,9 @@ export default function ActivityForm({
       // <input type="time"> gives "HH:mm" with no seconds, but the backend's TimeOnly JSON
       // parsing expects "HH:mm:ss".
       const time = values.time.length === 5 ? `${values.time}:00` : values.time;
-      await onSubmit({ ...values, time, destinationId: values.destinationId || null });
+      // Latitude/longitude only ever existed for the map feature (now removed) - the backend
+      // field is still nullable, so we simply stop collecting/sending a real value.
+      await onSubmit({ ...values, time, destinationId: values.destinationId || null, latitude: null, longitude: null });
     } catch (error) {
       setServerError(extractErrorMessage(error, "Čuvanje aktivnosti nije uspelo."));
     }
@@ -173,38 +171,6 @@ export default function ActivityForm({
             {...register("estimatedCost")}
           />
           {errors.estimatedCost && <p className="form-error" role="alert">{errors.estimatedCost.message}</p>}
-        </div>
-
-        <div className="form-field">
-          <label className="form-label" htmlFor="act-lat">
-            Geo. širina <span className="optional">(za mapu)</span>
-          </label>
-          <input
-            id="act-lat"
-            className="form-input"
-            type="number"
-            step="any"
-            placeholder="37.9715"
-            aria-invalid={!!errors.latitude}
-            {...register("latitude")}
-          />
-          {errors.latitude && <p className="form-error" role="alert">{errors.latitude.message}</p>}
-        </div>
-
-        <div className="form-field">
-          <label className="form-label" htmlFor="act-lng">
-            Geo. dužina <span className="optional">(za mapu)</span>
-          </label>
-          <input
-            id="act-lng"
-            className="form-input"
-            type="number"
-            step="any"
-            placeholder="23.7267"
-            aria-invalid={!!errors.longitude}
-            {...register("longitude")}
-          />
-          {errors.longitude && <p className="form-error" role="alert">{errors.longitude.message}</p>}
         </div>
 
         <div className="form-field form-field--wide">

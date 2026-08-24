@@ -15,7 +15,6 @@ import {
 } from "../components/common/Icons";
 import DestinationSection from "../components/destinations/DestinationSection";
 import ExpenseSection from "../components/expenses/ExpenseSection";
-import MapSection from "../components/map/MapSection";
 import ShareSection from "../components/sharing/ShareSection";
 import TripForm from "../components/trips/TripForm";
 import type { Trip } from "../models/Trip";
@@ -37,7 +36,6 @@ export default function TripDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [activitiesVersion, setActivitiesVersion] = useState(0);
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
 
@@ -195,8 +193,7 @@ export default function TripDetailPage() {
       )}
 
       <DestinationSection tripId={tripId} />
-      <ActivitySection tripId={tripId} onActivitiesChanged={() => setActivitiesVersion((v) => v + 1)} />
-      <MapSection tripId={tripId} refreshKey={activitiesVersion} />
+      <ActivitySection tripId={tripId} />
       <ExpenseSection tripId={tripId} />
       <ChecklistSection tripId={tripId} />
       <ShareSection tripId={tripId} />

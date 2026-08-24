@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { CalendarIcon, QrIcon, RouteIcon, WalletIcon } from "../common/Icons";
+import { CalendarIcon, ChecklistIcon, QrIcon, WalletIcon } from "../common/Icons";
 
 const highlights = [
   {
@@ -13,9 +13,9 @@ const highlights = [
     text: "Evidentiraj troškove po kategorijama i prati koliko ti je ostalo.",
   },
   {
-    icon: <RouteIcon />,
-    title: "Ruta na mapi",
-    text: "Redosled obilaska iscrtan na interaktivnoj mapi, dan po dan.",
+    icon: <ChecklistIcon />,
+    title: "Lista za pakovanje",
+    text: "Checklist stvari koje treba da spakuješ, sa praćenjem napretka.",
   },
   {
     icon: <QrIcon />,

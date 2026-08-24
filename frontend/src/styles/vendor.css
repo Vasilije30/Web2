@@ -1,6 +1,6 @@
 /*
- * Uklapanje eksternih biblioteka (react-big-calendar, leaflet) u temu aplikacije.
- * Selektori su namerno ugnježdeni unutar .calendar-frame / .map-frame kako bi imali veću
+ * Uklapanje eksterne biblioteke (react-big-calendar) u temu aplikacije.
+ * Selektori su namerno ugnježdeni unutar .calendar-frame kako bi imali veću
  * specifičnost od stilova same biblioteke — nezavisno od redosleda učitavanja CSS-a.
  */
 
@@ -199,42 +199,4 @@
   .calendar-frame .rbc-toolbar .rbc-btn-group button {
     flex: 1;
   }
-}
-
-/* ============ Leaflet ============ */
-
-.map-frame .leaflet-container {
-  height: 100%;
-  width: 100%;
-  font-family: var(--font-sans);
-  background: var(--surface-2);
-}
-
-.map-frame .leaflet-popup-content-wrapper {
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  padding: 2px;
-}
-
-.map-frame .leaflet-popup-content {
-  margin: var(--space-3) var(--space-4);
-  font-size: var(--text-sm);
-  line-height: 1.5;
-}
-
-.map-frame .leaflet-bar a {
-  border-radius: var(--radius-sm);
-  color: var(--slate-700);
-  font-weight: 600;
-}
-
-.map-frame .leaflet-control-attribution {
-  font-size: 10px;
-  background: rgb(255 255 255 / 0.82);
-}
-
-/* Numerisani marker (divIcon iz MapSection-a) nema sopstvenu pozadinu. */
-.activity-marker {
-  background: transparent;
-  border: none;
 }

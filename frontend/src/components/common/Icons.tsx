@@ -198,14 +198,6 @@ export const QrIcon = (p: IconProps) => (
   </Svg>
 );
 
-export const RouteIcon = (p: IconProps) => (
-  <Svg {...p}>
-    <circle cx="6" cy="19" r="3" />
-    <circle cx="18" cy="5" r="3" />
-    <path d="M9 19h4a4 4 0 0 0 0-8h-2a4 4 0 0 1 0-8h4" />
-  </Svg>
-);
-
 export const DownloadIcon = (p: IconProps) => (
   <Svg {...p}>
     <path d="M12 3v12m0 0 4-4m-4 4-4-4" />

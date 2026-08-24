@@ -18,16 +18,9 @@ interface ActivitySectionProps {
   tripId: string;
   shareToken?: string;
   readOnly?: boolean;
-  /** Called after any successful create/update/delete, so sibling sections (e.g. the map) can re-fetch. */
-  onActivitiesChanged?: () => void;
 }
 
-export default function ActivitySection({
-  tripId,
-  shareToken,
-  readOnly = false,
-  onActivitiesChanged,
-}: ActivitySectionProps) {
+export default function ActivitySection({ tripId, shareToken, readOnly = false }: ActivitySectionProps) {
   const confirm = useConfirm();
   const [activities, setActivities] = useState<Activity[]>([]);
   const [destinations, setDestinations] = useState<Destination[]>([]);
@@ -81,14 +74,12 @@ export default function ActivitySection({
     await activityService.createActivity(tripId, input, shareToken);
     setIsCreating(false);
     await loadActivities();
-    onActivitiesChanged?.();
   }
 
   async function handleUpdate(activityId: string, input: ActivityInput) {
     await activityService.updateActivity(tripId, activityId, input, shareToken);
     setEditingId(null);
     await loadActivities();
-    onActivitiesChanged?.();
   }
 
   async function handleDelete(activity: Activity) {
@@ -100,7 +91,6 @@ export default function ActivitySection({
     if (!confirmed) return;
     await activityService.deleteActivity(tripId, activity.id, shareToken);
     await loadActivities();
-    onActivitiesChanged?.();
   }
 
   const editingActivity = !readOnly ? (activities.find((a) => a.id === editingId) ?? null) : null;
@@ -176,7 +166,7 @@ export default function ActivitySection({
           text={
             readOnly
               ? "Vlasnik plana još nije dodao aktivnosti u itinerar."
-              : "Dodaj prvu aktivnost i ona će se pojaviti u kalendaru i na mapi."
+              : "Dodaj prvu aktivnost i ona će se pojaviti u kalendaru."
           }
         />
       )}

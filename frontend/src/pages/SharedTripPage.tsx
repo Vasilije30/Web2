@@ -6,7 +6,6 @@ import { Alert, Loading } from "../components/common/Feedback";
 import { CalendarIcon, ClockIcon, DownloadIcon, EyeIcon, PencilIcon, WalletIcon } from "../components/common/Icons";
 import DestinationSection from "../components/destinations/DestinationSection";
 import ExpenseSection from "../components/expenses/ExpenseSection";
-import MapSection from "../components/map/MapSection";
 import type { ShareAccessType } from "../models/ShareLink";
 import type { Trip } from "../models/Trip";
 import * as activityService from "../services/activityService";
@@ -25,7 +24,6 @@ export default function SharedTripPage() {
   const [accessType, setAccessType] = useState<ShareAccessType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activitiesVersion, setActivitiesVersion] = useState(0);
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
 
@@ -133,13 +131,7 @@ export default function SharedTripPage() {
       </header>
 
       <DestinationSection tripId={trip.id} shareToken={token} readOnly={readOnly} />
-      <ActivitySection
-        tripId={trip.id}
-        shareToken={token}
-        readOnly={readOnly}
-        onActivitiesChanged={() => setActivitiesVersion((v) => v + 1)}
-      />
-      <MapSection tripId={trip.id} shareToken={token} refreshKey={activitiesVersion} />
+      <ActivitySection tripId={trip.id} shareToken={token} readOnly={readOnly} />
       <ExpenseSection tripId={trip.id} shareToken={token} readOnly={readOnly} />
       <ChecklistSection tripId={trip.id} shareToken={token} readOnly={readOnly} />
     </div>
